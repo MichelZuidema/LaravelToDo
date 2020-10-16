@@ -19,6 +19,7 @@
                     <thead>
                     <tr class="border-b">
                         <th class="text-left p-3 px-5">Task</th>
+                        <th class="text-left p-3 px-5">User</th>
                         <th class="text-left p-3 px-5">Actions</th>
                         <th></th>
                     </tr>
@@ -27,8 +28,13 @@
                     @foreach(auth()->user()->tasks as $task)
                         <tr class="border-b hover:bg-orange-100">
                             <td class="p-3 px-5">
-                                {{$task->description}}
+                                {{ $task->description }}
                             </td>
+
+                            <td class="p-3 px-5">
+                                {{ $task->user->name }}
+                            </td>
+
                             <td class="p-3 px-5">
 
                                 <a href="/task/{{$task->id}}" name="edit" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</a>
